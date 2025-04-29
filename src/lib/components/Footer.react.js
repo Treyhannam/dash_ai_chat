@@ -13,34 +13,21 @@ import '/src/assets/footer.css';
  * @param {Object} props - Component props.
  * @returns {JSX.Element} Rendered Footer component.
  */
-const Footer = ( props ) => {
-    const {id, children, message, setProps} = props;
+const Footer = ( {id, children, message, setProps} ) => {
     const [inputValue, setInputValue] = useState('');
     const textareaRef = useRef(null);
 
     const handleInputChange = (e) => {
+      const maxHeight = 300; 
       const textarea = textareaRef.current;
       if (textarea) {
         textarea.style.height = 'auto'; 
-        textarea.style.height = Math.min(textarea.scrollHeight, 300) + 'px'; 
+        textarea.style.height = Math.min(textarea.scrollHeight, maxHeight) + 'px'; 
       }
 
       setInputValue(e.target.value);
     };
     
-
-    /**
-     * Handle enter key for message submission.
-     *
-     * @param {React.KeyboardEvent<HTMLTextAreaElement>} event
-     */
-    const handleInputKeyDown = (e) => {
-      if (e.key === 'Enter' && !e.shiftKey) {
-        e.preventDefault();
-        handleSubmitMessage();
-      }
-    };
-  
     /**
      * Submit the input message and update state via setProps.
      */
@@ -55,7 +42,17 @@ const Footer = ( props ) => {
           textarea.style.height = 'auto';
         }
       }
-  
+    };
+    /**
+     * Handle enter key for message submission.
+     *
+     * @param {React.KeyboardEvent<HTMLTextAreaElement>} event
+     */
+    const handleInputKeyDown = (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        handleSubmitMessage();
+      }
     };
   
     return (

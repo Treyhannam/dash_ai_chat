@@ -13,7 +13,10 @@ import '/src/assets/resizable-window.css';
  * @returns {JSX.Element} A resizable chat container.
  */
 const ResizableWindow = ({ children, setProps }) => {
-  
+  const minBoxHeight = 150;
+  const minBoxWidth = 150;
+  const maxDimensionMultiplier = 150;
+
     const [size, setSize] = useState(() => {
       const stored = localStorage.getItem('ResizableWindow-size');
       return stored ? JSON.parse(stored) : { width: 400, height: 600 };
@@ -33,8 +36,8 @@ const ResizableWindow = ({ children, setProps }) => {
         width={size.width}
         height={size.height}
         axis="both"
-        minConstraints={[150, 100]}
-        maxConstraints={[window.innerWidth * 0.9, window.innerHeight * 0.9]}
+        minConstraints={[minBoxHeight, minBoxWidth]}
+        maxConstraints={[window.innerWidth * maxDimensionMultiplier, window.innerHeight * maxDimensionMultiplier]}
         resizeHandles={['nw']}
         onResizeStop={handleResizeStop}
       >

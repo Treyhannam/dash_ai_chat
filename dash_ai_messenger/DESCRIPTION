@@ -1,0 +1,13 @@
+Package: dashAiMessenger
+Title: Dash components to display and ingest messages between AI and users.
+Version: 0.0.1
+Description: Dash components to display and ingest messages between AI and users.
+Depends: R (>= 3.0.2)
+Imports: 
+Suggests: 
+License: MIT + file LICENSE
+URL: 
+BugReports: 
+Encoding: UTF-8
+LazyData: true
+KeepSource: true

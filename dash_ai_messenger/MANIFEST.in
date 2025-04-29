@@ -1,0 +1,11 @@
+include dash_ai_messenger/dash_ai_messenger.min.js
+include dash_ai_messenger/dash_ai_messenger.min.js.map
+include dash_ai_messenger/async-*.js
+include dash_ai_messenger/async-*.js.map
+include dash_ai_messenger/*-shared.js
+include dash_ai_messenger/*-shared.js.map
+include dash_ai_messenger/metadata.json
+include dash_ai_messenger/package-info.json
+include README.md
+include LICENSE
+include package.json

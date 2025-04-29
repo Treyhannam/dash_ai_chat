@@ -1,0 +1,36 @@
+.toggle-button {
+    position: fixed;
+    bottom: 1vh;
+    right: 1vh;
+    border: none;
+    height: 5vh;
+    width: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.close-toggle-icon, .open-toggle-icon {
+    width: 3vh;
+    height: 3vh;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup  {
+    position: fixed;
+    right: 5.5vh;
+    bottom: 5.5vh;
+    background: white;
+    overflow: hidden;
+    border-radius: 15px;
+    transform-origin: bottom right;
+    box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1), 
+    0 32px 64px -48px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}

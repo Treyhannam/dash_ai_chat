@@ -1,0 +1,26 @@
+.chat-header {
+    position: sticky;
+    top: 0;
+    background: gray;
+    justify-content: center;
+    display: flex;
+}
+
+.resize-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 7px;
+    rotate: -45deg;
+}
+
+.reset-button {
+    position: absolute;
+    right: 0px;
+    margin-right: 10px;
+    margin-top: 10px;
+    color: None;
+    border: None;
+    cursor: pointer;
+    background: transparent;
+}

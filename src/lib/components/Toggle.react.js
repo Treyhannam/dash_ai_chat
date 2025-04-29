@@ -14,8 +14,7 @@ import '/src/assets/toggle.css';
  * @param {Function} props.children - Child component to display when the toggle is active.
  * @returns {JSX.Element} Rendered ChatWindow component.
  */
-const Toggle = ( props ) => {
-    const {id, children, isVisible, setProps} = props;
+const Toggle = ( {id, children, isVisible, setProps} ) => {
     const [localVisible, setLocalVisible] = useState(isVisible || false);
 
     /**

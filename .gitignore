@@ -141,8 +141,6 @@ cython_debug/
 # Jupyter notebook
 *.ipynb
 
-# Config file
-*.json
 
 # Venv
 venv/

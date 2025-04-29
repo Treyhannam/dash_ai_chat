@@ -10,9 +10,7 @@ import '/src/assets/header-menu.css';
  * @component
  * @returns {JSX.Element} Rendered ChatWindow component.
  */
-const HeaderMenu = ( props ) => {
-    const {id, headerText, setProps, resetClicked} = props;
-
+const HeaderMenu = ( {id, headerText, setProps, resetClicked} ) => {
     const handleResetClick = () => {
         setProps({ resetClicked: true });
     }

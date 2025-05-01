@@ -69,7 +69,8 @@ A table:
                         ),
                         dam.Footer(
                             id='messagefooter',
-                            children=buttons
+                            children=buttons,
+                            disableInput=False
                         ),
                     ]
                     )

@@ -2,15 +2,19 @@ import dash_ai_messenger as dam
 from dash import Dash, callback, html, Input, Output, dcc
 import textwrap
 import dash_bootstrap_components as dbc
+import time
 
 app = Dash(__name__)
 
+# TODO:
+# Disable the input box while waiting for a response
+# Chat window exists the screen on work lap top.. prevent that
 buttons = html.Div(
     [
         dbc.Button("Regular", color="primary", className="me-1"),
         dbc.Button("Active", color="primary", active=True, className="me-1"),
     ],
-    style={"align-self": "flex-start", "margin-left": "10px"},
+    style={"alignSelf": "flexStart", "marginLeft": "10px"},
 )
 
 app.layout = html.Div(
@@ -101,6 +105,7 @@ def track_history(message, messages, resetClicked):
 
     elif message != None:
         messages.append({"role": "user", "content": message})
+
 
         return messages, False
     

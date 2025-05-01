@@ -22,7 +22,7 @@ const Body = ({ id, messages = [], setProps }) => {
     const messagesEndRef = useRef(null);
     const chatBodyRef = useRef(null);
     const COPY_RESET_DELAY_MS = 1000;
-    // const {id, messages, setProps} = props;
+    const isLoading = messages.length > 0 && messages[messages.length - 1].role === 'user';
 
     // Restore scroll position on mount
     useEffect(() => {
@@ -96,6 +96,12 @@ const Body = ({ id, messages = [], setProps }) => {
       );
     };
 
+    const LoadingDots = () => (
+      <div className="loading-dots">
+        <span>.</span><span>.</span><span>.</span>
+      </div>
+    );
+
     Code.propTypes = {
       children: PropTypes.node.isRequired,
       className: PropTypes.string, 
@@ -116,6 +122,13 @@ const Body = ({ id, messages = [], setProps }) => {
             </div>
           </div>
         ))}
+         {isLoading && (
+        <div className="message assistant-message">
+          <div className="message-text">
+            <LoadingDots />
+          </div>
+        </div>
+      )}
       </div>
     );
 

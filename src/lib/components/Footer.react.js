@@ -13,7 +13,7 @@ import '/src/assets/footer.css';
  * @param {Object} props - Component props.
  * @returns {JSX.Element} Rendered Footer component.
  */
-const Footer = ( {id, children, message, setProps} ) => {
+const Footer = ( {id, children, message, disableInput, disableSubmit, setProps} ) => {
     const [inputValue, setInputValue] = useState('');
     const textareaRef = useRef(null);
 
@@ -67,10 +67,15 @@ const Footer = ( {id, children, message, setProps} ) => {
           onKeyDown={handleInputKeyDown}
           placeholder="Ask anything"
           className="message-input"
+          disabled={disableInput}
         />
         <div className="footer-bottom-line">        
           {children}
-          <button className="send-button" onClick={handleSubmitMessage}>
+          <button
+            className="send-button"
+            onClick={handleSubmitMessage}
+            disabled={disableSubmit}
+          >
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </button>
         </div>
@@ -90,6 +95,16 @@ Footer.propTypes = {
      * Message submitted by the user.
      */
     message: PropTypes.string,
+
+    /**
+     * True to disable the text input
+     */
+    disableInput: PropTypes.bool,
+
+    /**
+     * True to disable the submit button
+     */
+    disableSubmit: PropTypes.bool,
 
     /**
      * Child component to display in the footer.

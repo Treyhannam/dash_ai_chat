@@ -10,13 +10,18 @@ Footer displays a resizable chat interface with scroll tracking and message subm
 }
 
 \usage{
-'dam'Footer(children=NULL, id=NULL, message=NULL)
+'dam'Footer(children=NULL, id=NULL, disableInput=NULL,
+disableSubmit=NULL, message=NULL)
 }
 
 \arguments{
 \item{children}{A list of or a singular dash component, string or number. Child component to display in the footer.}
 
 \item{id}{Character. The ID used to identify this component in Dash callbacks.}
+
+\item{disableInput}{Logical. True to disable the text input}
+
+\item{disableSubmit}{Logical. True to disable the submit button}
 
 \item{message}{Character. Message submitted by the user.}
 }

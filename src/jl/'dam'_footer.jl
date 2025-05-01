@@ -17,10 +17,12 @@ Footer displays a resizable chat interface with scroll tracking and message subm
 Keyword arguments:
 - `children` (a list of or a singular dash component, string or number; optional): Child component to display in the footer.
 - `id` (String; optional): The ID used to identify this component in Dash callbacks.
+- `disableInput` (Bool; optional): True to disable the text input
+- `disableSubmit` (Bool; optional): True to disable the submit button
 - `message` (String; optional): Message submitted by the user.
 """
 function 'dam'_footer(; kwargs...)
-        available_props = Symbol[:children, :id, :message]
+        available_props = Symbol[:children, :id, :disableInput, :disableSubmit, :message]
         wild_props = Symbol[]
         return Component("'dam'_footer", "Footer", "dash_ai_messenger", available_props, wild_props; kwargs...)
 end

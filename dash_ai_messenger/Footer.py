@@ -34,6 +34,12 @@ Keyword arguments:
 - id (string; optional):
     The ID used to identify this component in Dash callbacks.
 
+- disableInput (boolean; optional):
+    True to disable the text input.
+
+- disableSubmit (boolean; optional):
+    True to disable the submit button.
+
 - message (string; optional):
     Message submitted by the user."""
     _children_props = []
@@ -47,11 +53,13 @@ Keyword arguments:
         children: typing.Optional[ComponentType] = None,
         id: typing.Optional[typing.Union[str, dict]] = None,
         message: typing.Optional[str] = None,
+        disableInput: typing.Optional[bool] = None,
+        disableSubmit: typing.Optional[bool] = None,
         **kwargs
     ):
-        self._prop_names = ['children', 'id', 'message']
+        self._prop_names = ['children', 'id', 'disableInput', 'disableSubmit', 'message']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'message']
+        self.available_properties = ['children', 'id', 'disableInput', 'disableSubmit', 'message']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

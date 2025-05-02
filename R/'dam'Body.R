@@ -1,9 +1,9 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 #' @export
-'dam'Body <- function(children=NULL, id=NULL, messages=NULL) {
+'dam'Body <- function(children=NULL, id=NULL, displayEnd=NULL, displayStart=NULL, messages=NULL) {
     
-    props <- list(children=children, id=id, messages=messages)
+    props <- list(children=children, id=id, displayEnd=displayEnd, displayStart=displayStart, messages=messages)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -11,7 +11,7 @@
         props = props,
         type = 'Body',
         namespace = 'dash_ai_messenger',
-        propNames = c('children', 'id', 'messages'),
+        propNames = c('children', 'id', 'displayEnd', 'displayStart', 'messages'),
         package = 'dashAiMessenger'
         )
 

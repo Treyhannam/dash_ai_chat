@@ -18,7 +18,7 @@ import '/src/assets/body.css';
  * @param {Object} props - Component props.
  * @returns {JSX.Element} Rendered ChatWindow component.
  */
-const Body = ({ id, messages = [], setProps }) => {
+const Body = ({ id, messages = [], setProps, displayStart, displayEnd }) => {
     const messagesEndRef = useRef(null);
     const chatBodyRef = useRef(null);
     const COPY_RESET_DELAY_MS = 1000;
@@ -107,6 +107,14 @@ const Body = ({ id, messages = [], setProps }) => {
       className: PropTypes.string, 
     };
 
+    const extractDisplayContent = (text) => {
+      if (!displayStart || !displayEnd) { return text};
+    
+      const pattern = new RegExp(`${displayStart}(.*?)${displayEnd}`, 's');
+      const match = pattern.exec(text);
+      return match ? match[1].trim() : text;
+    };
+
     const JsxMessage = () => (
       <div>
         {messages.map((message, index) => (
@@ -116,7 +124,7 @@ const Body = ({ id, messages = [], setProps }) => {
                 remarkPlugins={[remarkGfm]}
                 components={{ code: Code }}
                 >
-                    {message.content}
+                    {extractDisplayContent(message.content)}
                 </Markdown>
               <div ref={messagesEndRef} />
             </div>
@@ -155,6 +163,16 @@ Body.propTypes = {
      * Child component to display in the footer.
      */
     children: PropTypes.node,
+
+    /**
+     * Start indicator of text to be displayed in the chat window.
+     */
+    displayStart: PropTypes.string,
+
+    /**
+     * End indicator of text to be displayed in the chat window.
+     */
+    displayEnd: PropTypes.string,
 
     /**
      * Open AI messages to be displayed in the chat window.

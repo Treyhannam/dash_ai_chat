@@ -34,6 +34,12 @@ Keyword arguments:
 - id (string; optional):
     The ID used to identify this component in Dash callbacks.
 
+- displayEnd (string; optional):
+    End indicator of text to be displayed in the chat window.
+
+- displayStart (string; optional):
+    Start indicator of text to be displayed in the chat window.
+
 - messages (list of dicts; optional):
     Open AI messages to be displayed in the chat window.
 
@@ -59,12 +65,14 @@ Keyword arguments:
         self,
         children: typing.Optional[ComponentType] = None,
         id: typing.Optional[typing.Union[str, dict]] = None,
+        displayStart: typing.Optional[str] = None,
+        displayEnd: typing.Optional[str] = None,
         messages: typing.Optional[typing.Sequence["Messages"]] = None,
         **kwargs
     ):
-        self._prop_names = ['children', 'id', 'messages']
+        self._prop_names = ['children', 'id', 'displayEnd', 'displayStart', 'messages']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'messages']
+        self.available_properties = ['children', 'id', 'displayEnd', 'displayStart', 'messages']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

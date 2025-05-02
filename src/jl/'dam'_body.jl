@@ -17,13 +17,15 @@ Body displays chat messages and autoscrolls to the latest message. This scroll i
 Keyword arguments:
 - `children` (a list of or a singular dash component, string or number; optional): Child component to display in the footer.
 - `id` (String; optional): The ID used to identify this component in Dash callbacks.
+- `displayEnd` (String; optional): End indicator of text to be displayed in the chat window.
+- `displayStart` (String; optional): Start indicator of text to be displayed in the chat window.
 - `messages` (optional): Open AI messages to be displayed in the chat window.. messages has the following type: Array of lists containing elements 'role', 'content'.
 Those elements have the following types:
   - `role` (String; required)
   - `content` (String; required)s
 """
 function 'dam'_body(; kwargs...)
-        available_props = Symbol[:children, :id, :messages]
+        available_props = Symbol[:children, :id, :displayEnd, :displayStart, :messages]
         wild_props = Symbol[]
         return Component("'dam'_body", "Body", "dash_ai_messenger", available_props, wild_props; kwargs...)
 end
